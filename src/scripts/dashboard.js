@@ -35,7 +35,7 @@ function addLogoutButtonListeners() {
 function logout() {
   localStorage.removeItem("@petInfo:token");
   localStorage.removeItem("@petInfo:userName");
-  location.href = "/src/pages/login.html";
+  location.href = "../../index.html";
 }
 
 addLogoutButtonListeners();
