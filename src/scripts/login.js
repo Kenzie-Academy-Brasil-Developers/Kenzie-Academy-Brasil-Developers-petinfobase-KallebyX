@@ -61,7 +61,7 @@ async function getProfileInfos() {
 
 const botaoCadastro = document.querySelector('#cadastro__button');
 botaoCadastro.addEventListener('click', () => {
-  window.location.href = '/src/pages/cadastro.html';
+  window.location.href = './src/pages/cadastro.html';
 });
 
 function handleLogin() {
