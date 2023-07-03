@@ -107,7 +107,7 @@ async function renderCards() {
       userInfoDiv.appendChild(user);
 
       const data = document.createElement('p');
-      data.textContent = post.created_at;
+      data.textContent = new Date(post.createdAt).toLocaleDateString();
       data.classList.add('post_data');
       userInfoDiv.appendChild(data);
 
@@ -116,13 +116,26 @@ async function renderCards() {
 
       const editarButton = document.createElement('button');
       editarButton.textContent = 'Editar';
+      editarButton.classList.add('edit_button');
       editarButton.setAttribute("id", 'edit_button');
+      editarButton.addEventListener('click', () => {
+        const editModal = document.getElementById('edit_post__modal');
+        editModal.showModal();
+      });
       editDeleteDiv.appendChild(editarButton);
 
       const deletarButton = document.createElement('button');
+      const closeModalButton = document.createElement('button');
+      closeModalButton.classList.add('closeModal');
+      closeModalButton.textContent = 'X';
       deletarButton.textContent = 'Deletar';
       deletarButton.classList.add('delete_button');
-      editDeleteDiv.appendChild(deletarButton);
+      deletarButton.addEventListener('click', () => {
+        const deleteModal = document.getElementById('delete_post__modal');
+        deleteModal.showModal();
+        editDeleteDiv.appendChild(closeModalButton);
+      });
+      editDeleteDiv.appendChild(deletarButton)
 
       const titleContentDiv = document.createElement('div');
       titleContentDiv.classList.add('title_content');
@@ -144,10 +157,13 @@ async function renderCards() {
       button.textContent = 'Acessar publicação';
       button.classList.add('access_button');
       button.addEventListener('click', () => {
-        displayViewModal(post);
+        const viewModal = document.getElementById('view_post__modal');
+        viewModal.showModal();
       });
       buttonDiv.appendChild(button);
 
+      const divXModal = document.querySelector('.closeModal');
+      divXModal.appendChild(closeModalButton);
       card.appendChild(userInfoDiv);
       card.appendChild(editDeleteDiv);
       card.appendChild(titleContentDiv);
@@ -159,7 +175,5 @@ async function renderCards() {
     alert('Erro ao renderizar os cards');
   }
 }
-
-
 
 renderCards();

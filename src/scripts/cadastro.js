@@ -49,11 +49,11 @@ function retornar() {
     const retornarButton = document.querySelector('.retornar');
 
     retornarButton.addEventListener('click', () => {
-      window.location.href = "/src/pages/login.html";
+      window.location.href = "../../index.html";
     });
 
     retornarButton2.addEventListener('click', () => {
-      window.location.href = "/src/pages/login.html";
+      window.location.href = "../../index.html";
     });
   });
 }
