@@ -1,0 +1,203 @@
+.crar_post__modal {
+    background: var(--grey-9, #fcfeff);
+    border-radius: 8px;
+    border: 0.1px solid;
+    padding: 32px 24px 32px 24px;
+    gap: 46px;
+    width: 800px;
+}
+
+.topModal {
+    display: inline-flex;
+    height: 80px;
+    gap: 500px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#h2Modal{
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: #212529;
+    text-align: left;
+    font: 700 20px "IBM Plex Sans", sans-serif;
+}
+
+#x {
+    color: #868e96;
+    text-align: left;
+    font: 700 14px/150% "Nunito", sans-serif;
+    position: relative;
+    background:  #fcfeff;
+    border-radius: 4px;
+    padding: 4px 14px 4px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+}
+
+#x:hover {
+    background: #e9ecef;
+    border-radius: 4px;
+    padding: 4px 14px 4px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    position: relative;
+    color: #868e96;
+    text-align: left;
+    font: 700 14px/150% "Nunito", sans-serif;
+}
+
+.form_modal_post {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+}
+
+#parte1 {
+    display: grid;
+    flex-shrink: 0;
+    width: 743px;
+    height: 79px;
+    position: static;
+}
+
+#parte2 {
+    display: grid;
+    flex-shrink: 0;
+    width: 744px;
+    height: 233px;
+    position: static;
+}
+
+#postTitle {
+    background: #f8f9fa;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: #d9d9d9;
+    border-width: 1px;
+    padding: 10px 17px 10px 17px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 743px;
+    position: relative;
+    color: #495057;
+    text-align: left;
+    font: 400 16px/150% "IBM Plex Sans", sans-serif;
+    position: relative;
+    width: 715px;
+}
+
+#postContent {
+    background: #f8f9fa;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: #d9d9d9;
+    border-width: 1px;
+    padding: 10px 17px 10px 17px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 743px;
+    height: 120px;
+    position: relative;
+    color: #495057;
+    text-align: left;
+    font: 400 16px/150% "IBM Plex Sans", sans-serif;
+    position: relative;
+    width: 715px;
+}
+
+.botoes {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+#cancelar {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: var(--grey-6, #e9ecef);
+    border-width: 1px;
+    padding: 7px 20px 7px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    color: var(--grey-1, #212529);
+    text-align: left;
+    font: 500 16px/150% "IBM Plex Sans", sans-serif;
+}
+
+#cancelar:hover {
+    background: #e9ecef;
+    border-radius: 10px;
+    padding: 7px 20px 7px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #868e96;
+    text-align: left;
+    font: 500 16px/150% "IBM Plex Sans", sans-serif;
+}
+
+#publicar_button {
+    background: var(--brand-1, #364fc7);
+    border-radius: 4px;
+    padding: 7px 20px 7px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    color: var(--grey-9, #fcfeff);
+    text-align: left;
+    font: 500 16px/150% "IBM Plex Sans", sans-serif;
+}
+
+#publicar_button:hover {
+    background: var(--brand-2, #2f4bc9);
+    border-radius: 4px;
+    border-style: solid;
+    border-color: var(--brand-2, #2f4bc9);
+    border-radius: 4px;
+    padding: 7px 20px 7px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    color: var(--grey-9, #fcfeff);
+    text-align: left;
+    font: 500 16px/150% "IBM Plex Sans", sans-serif;
+}
+

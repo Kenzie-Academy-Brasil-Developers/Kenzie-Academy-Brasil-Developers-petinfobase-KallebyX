@@ -1,0 +1,288 @@
+body {
+    background: var(--grey-10, #f8f9fa);
+    color: var(--grey-1, #212529);
+    text-align: left;
+    font: var(--font-2-500, 500 24px/150% "IBM Plex Sans", sans-serif);
+    position: relative;
+}
+
+img {
+    width: 32px;
+    height: 32px;
+}
+
+#user-image {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: var(--brand-1, #364fc7);
+    border-width: 1px;
+    margin-left: 15px;
+}
+
+
+#logout-button {
+    background: var(--brand-1, #364fc7);
+    border-radius: 4px;
+    border-style: solid;
+    border-color: var(--brand-1, #364fc7);
+    border-width: 1px;
+    padding: 0px 16px 0px 16px;
+    display: grid;
+    flex-direction: row;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    color: var(--grey-9, #fcfeff);
+    text-align: left;
+    font: var(--font-4-500, 500 16px/150% "IBM Plex Sans", sans-serif);
+    position: relative;
+}
+
+#menu {
+    width: 100%;
+    height: 44px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+#user-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#criar-publicacao {
+    background: var(--brand-1, #364fc7);
+    border-radius: 4px;
+    border-style: solid;
+    border-color: var(--brand-1, #364fc7);
+    border-width: 1px;
+    padding: 0px 16px 0px 16px;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    color: var(--grey-9, #fcfeff);
+    text-align: left;
+    font: var(--font-4-500, 500 16px/150% "IBM Plex Sans", sans-serif);
+    position: relative;
+}
+
+.feedSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    margin-left: 383px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative; 
+    margin-top: 90px;
+    margin-bottom: 60px;
+}
+
+.post_card {    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 800px;
+    background: var(--grey-9, #fcfeff);
+    border-radius: 4px;
+    border-style: solid;
+    border-color: var(--grey-6, #e9ecef);
+    border-width: 1px;
+    padding: 20px 20px 20px 20px;
+    margin-bottom: 20px;
+}
+
+.post_list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.post_image {
+    background: linear-gradient(to left, #d9d9d9, #d9d9d9);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    position: relative;
+}
+
+.post_user {
+    margin-left: 20px;
+    color: #212529;
+    text-align: left;
+    font: var(--font-5-500, 500 14px/150% "IBM Plex Sans", sans-serif);
+    position: relative;
+}
+
+.user_info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit_delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 20px;
+    margin-top: 52px;
+    gap: 10px;
+}
+
+#edit_button {
+    border-radius: 4px;
+    border-style: solid;
+    border-color: var(--grey-6, #e9ecef);
+    border-width: 1px;
+    padding: 0px 8px 0px 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 32px;
+    position: relative;
+    color: var(--grey-1, #212529);
+    text-align: left;
+    font: var(--font-5-500, 500 14px/150% "IBM Plex Sans", sans-serif);
+}
+
+#edit_button:hover {
+    background: var(--grey-7, #f1f3f5);
+    border-radius: 4px;
+    border-style: solid;
+    border-color: var(--grey-7, #f1f3f5);
+    border-width: 1px;
+    padding: 0px 8px 0px 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 32px;
+    position: relative;
+    color: var(--grey-4, #868e96);
+    text-align: left;
+    font: var(--font-5-500, 500 14px/150% "IBM Plex Sans", sans-serif);
+    position: relative;
+}
+
+.delete_button {
+    border-radius: 4px;
+    border-style: solid;
+    border-color: var(--grey-6, #e9ecef);
+    border-width: 1px;
+    padding: 0px 8px 0px 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 32px;
+    position: relative;
+    color: var(--grey-1, #212529);
+    text-align: left;
+    font: var(--font-5-500, 500 14px/150% "IBM Plex Sans", sans-serif);
+}
+
+.delete_button:hover {
+    background: var(--grey-7, #f1f3f5);
+    border-radius: 4px;
+    border-style: solid;
+    border-color: var(--grey-7, #f1f3f5);
+    border-width: 1px;
+    padding: 0px 8px 0px 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 32px;
+    position: relative;
+    color: var(--grey-4, #868e96);
+    text-align: left;
+    font: var(--font-5-500, 500 14px/150% "IBM Plex Sans", sans-serif);
+    position: relative;
+}
+
+.title_content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+}
+
+.post_image {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to left, #d9d9d9, #d9d9d9);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    position: relative;
+}
+
+.access_button {
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    color: var(--brand-1, #364fc7);
+    text-align: left;
+    font: var(--font-4-500, 500 16px/150% "IBM Plex Sans", sans-serif);
+
+}
+
+.access_button:hover {
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    color: var(--brand-2, #3b56d9);
+    text-align: left;
+    font: var(--font-4-500-underline, 500 16px/150% "IBM Plex Sans", sans-serif);
+    text-decoration: underline;
+    position: relative;
+}
