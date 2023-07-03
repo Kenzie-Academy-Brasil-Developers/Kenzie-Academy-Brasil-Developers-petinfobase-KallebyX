@@ -1,4 +1,4 @@
-import { baseUrl } from "/src/scripts/index.js";
+import { baseUrl } from "./index.js";
 
 async function createUser(requestBody) {
   try {

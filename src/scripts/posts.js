@@ -1,4 +1,4 @@
-import { baseUrl } from "/src/scripts/index.js";
+import { baseUrl } from "./index.js";
 
 function handleModal() {
   const postForm = document.querySelector('.form_modal_post');
@@ -173,9 +173,9 @@ async function renderCards() {
       button.textContent = 'Acessar publicação';
       button.classList.add('access_button');
       button.addEventListener('click', () => {
-        const viewModal = document.getElementById('view_post__modal');
-        viewModal.showModal();
+        viewPost(post.id); 
       });
+      buttonDiv.appendChild(button);
       buttonDiv.appendChild(button);
 
       card.appendChild(buttonUserInfoDiv);
@@ -331,30 +331,10 @@ async function viewPost(postId) {
     };
 
     const response = await fetch(`${baseUrl}/posts/${postId}`, options);
+    console.log('Response:', response);
+
     const data = await response.json();
-
-    if (response.ok) {
-      const viewModal = document.getElementById('view_post__modal');
-      const image = viewModal.querySelector('.perfil_img');
-      const username = viewModal.querySelector('.username');
-      const date = viewModal.querySelector('.data');
-      const title = viewModal.querySelector('.titulo');
-      const content = viewModal.querySelector('.content');
-
-      image.src = data.user.avatar;
-      username.textContent = data.user.username;
-
-      const dateOptions = { month: 'long', year: 'numeric' };
-      const formattedDate = new Date(data.createdAt).toLocaleDateString(undefined, dateOptions);
-      date.textContent = formattedDate;
-
-      title.textContent = data.title;
-      content.textContent = data.content;
-
-      viewModal.showModal();
-    } else {
-      throw new Error(data.message || 'Erro ao obter post');
-    }
+    console.log('Data:', data);
   } catch (error) {
     console.error(error);
     alert('Erro ao visualizar o post');
