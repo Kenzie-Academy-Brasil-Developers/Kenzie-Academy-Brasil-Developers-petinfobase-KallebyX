@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="/src/styles/modal.css">
+    <link rel="stylesheet" href="/src/styles/dashboard.css">
+</head>
+<body>
+    <header id="menu">
+        <h1 class="h1-pet">PetInfo</h1>
+        <div id="user-menu">
+          <button id="criar-publicacao">Criar publicação</button>
+          <div class="imgButton">
+            <img id="user-image" src="" alt="">
+            <button id="logout-button" style="display: none;">Sair</button>
+          </div>
+        </div>
+    </header>
+    <h3 class="feed">Feed</h3>
+    <section class="feedSection">
+        <div id="result-style">
+          <img src="" alt="" id="img">
+          <div id="content"></div>
+      </div>
+        <div class="post_container">
+          <ul class="post_list">
+
+          </ul>
+        </div>
+    </section>
+    <dialog class="crar_post__modal">
+        <div class="topModal">
+            <h2 id="h2Modal">Criando novo post</h2>
+            <button id="x" class="closeModal">X</button>
+        </div>
+        </div>
+          <form class="form_modal_post">
+            <div id="parte1">
+              <label for="#titulo_post">Título</label>
+              <input
+                class="add__input"
+                id="postTitle"
+                type="text"
+                name="title"
+                placeholder="Digite o título aqui"
+              />
+            </div>
+            <div id="parte2">
+              <label for="#conteudo_post">Conteudo do post:</label>
+              <textarea
+                class="add__input"
+                name="content"
+                id="postContent"
+                cols="30"
+                rows="12"
+                placeholder="Desenvolva aqui o conteudo do post"
+              ></textarea>
+              <div class="botoes">
+                <button id="cancelar" type="button">Cancelar</button>
+                <button id="publicar_button" type="button">Publicar</button>
+              </div>
+            </div>
+          </form>
+      </dialog>
+
+      <dialog id="edit_post__modal">
+        <div class="edit_post__modal-conatiner">
+            <div class="editContainer">
+                <h2>Editar</h2>
+                <button id="x" class="closeModal">X</button>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem maiores magni eaque officia odit velit laboriosam beatae sunt sed suscipit a, modi veritatis unde aut eius eligendi! Repellendus, porro maiores!</p>
+            <form>
+                <input type="email" value="email">
+                <button class="closeModal">Entrar na lista para proxima turma</button>
+            </form>
+        </div>
+    </dialog>
+
+      <script type="module" src="/src/scripts/dashboard.js"></script>
+      <script type="module" src="/src/scripts/index.js"></script>
+      <script type="module" src="/src/scripts/modal.js"></script>
+      <script type="module" src="/src/scripts/posts.js"></script>
+</body>
+</html>
