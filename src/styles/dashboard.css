@@ -98,6 +98,19 @@ img {
     margin-bottom: 60px;
 }
 
+.post_data {
+    display: flex;
+    width: 100px;
+}
+
+.post_content {
+    color: var(--grey-3, #495057);
+    text-align: left;
+    font: var(--font-4-400, 400 16px/150% "IBM Plex Sans", sans-serif);
+    position: relative;
+    width: 796px;
+}
+
 .post_card {    
     display: flex;
     flex-direction: column;
@@ -245,6 +258,14 @@ img {
     flex-shrink: 0;
 }
 
+.post_title {
+    color: #212529;
+  text-align: left;
+  font: var(--font-2-600, 600 24px/150% "IBM Plex Sans", sans-serif);
+  position: relative;
+  width: 800px;
+}
+
 .post_image {
     display: inline-flex;
     align-items: center;
@@ -254,6 +275,35 @@ img {
     width: 32px;
     height: 32px;
     position: relative;
+}
+
+.post_data {
+    color: #868E96;
+    font-size: 14px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.button_user_info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.edit_button {
+    margin-left: 445px;
+}
+
+.barra {
+    color: #e9ecef;
+    text-align: left;
+    font: 500 20px/150% "IBM Plex Sans", sans-serif;
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .access_button {
