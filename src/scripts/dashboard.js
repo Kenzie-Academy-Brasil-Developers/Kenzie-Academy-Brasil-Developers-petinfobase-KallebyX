@@ -1,10 +1,14 @@
 import { baseUrl } from "/src/scripts/index.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-  getProfileImage()
-    .then((imageUrl) => {
+  getProfileData()
+    .then((profileData) => {
+      const { imageUrl, userName } = profileData;
       const userImage = document.getElementById("user-image");
+      const userNameElement = document.getElementById("user-name");
       userImage.src = imageUrl;
+      userNameElement.textContent = userName;
+      addLogoutButtonListeners(); 
     })
     .catch((error) => {
       console.log(error);
@@ -15,13 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showLogoutButton() {
+  const sairImg = document.querySelector(".sair_img");
   const logoutButton = document.getElementById("logout-button");
   logoutButton.style.display = "block";
+  sairImg.style.display = "block";
 }
 
 function hideLogoutButton() {
+  const sairImg = document.querySelector(".sair_img");
   const logoutButton = document.getElementById("logout-button");
   logoutButton.style.display = "none";
+  sairImg.style.display = "none";
 }
 
 function addLogoutButtonListeners() {
@@ -38,9 +46,7 @@ function logout() {
   location.href = "../../index.html";
 }
 
-addLogoutButtonListeners();
-
-async function getProfileImage() {
+async function getProfileData() {
   try {
     const token = localStorage.getItem("@petInfo:token");
     const response = await fetch(`${baseUrl}/users/profile`, {
@@ -50,16 +56,16 @@ async function getProfileImage() {
       }
     });
 
-    const profile = await response.json();
-
     if (response.ok) {
+      const profile = await response.json();
       const imageUrl = profile.avatar;
-      return imageUrl;
+      const userName = profile.name;
+      return { imageUrl, userName };
     } else {
-      throw new Error("Falha ao obter a imagem de perfil.");
+      throw new Error("Falha ao obter dados do perfil.");
     }
   } catch (error) {
     console.log(error);
-    throw new Error("Falha ao obter a imagem de perfil.");
+    throw new Error("Falha ao obter dados do perfil.");
   }
 }

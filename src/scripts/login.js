@@ -12,9 +12,10 @@ async function loginRequest(loginBody) {
 
     const resJson = await res.json();
 
-    if (res.ok && resJson.token) {
+    if (res.ok) {
         localStorage.setItem('@petInfo:token', resJson.token);
-        return resJson.token;
+        window.location.href = './src/pages/dashboard.html';
+        return resJson;
     } else {
        throw new Error(resJson.message);
     }
@@ -29,11 +30,7 @@ async function userAuthenticator(user) {
 
     if (token === localStorage.getItem('@petInfo:token')) {
       const profileInfos = await getProfileInfos();
-      console.log(profileInfos);
       localStorage.setItem('@petInfo:userName', profileInfos.name);
-      window.location.href = './src/pages/dashboard.html';
-    } else {
-      throw new Error('Senha ou email incorretos');
     }
   } catch (err) {
     alert(err);

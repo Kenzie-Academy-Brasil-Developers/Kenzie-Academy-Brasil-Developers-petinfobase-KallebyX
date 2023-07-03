@@ -15,6 +15,7 @@ async function createUser(requestBody) {
     if (res.ok) {
       localStorage.setItem('@petInfo:token', resJson.token);
       alert('Usuário criado com sucesso');
+      window.location.href = "../../index.html";
       return resJson;
     } else {
       throw new Error(resJson.message);

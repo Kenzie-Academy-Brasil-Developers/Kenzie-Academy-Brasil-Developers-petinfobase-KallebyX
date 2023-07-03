@@ -24,4 +24,4 @@ export async function getProfileImage2() {
       console.log(error);
       throw new Error("Falha ao obter a imagem de perfil.");
     }
-  }
+}
