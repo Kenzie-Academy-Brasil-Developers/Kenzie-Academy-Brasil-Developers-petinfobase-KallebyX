@@ -39,12 +39,3 @@ function handleModal() {
 
 handleModal();
 
-function abrirEditModal() {
-  const botaoAbrirModalEdit = document.getElementById('edit_button');
-  const editModal = document.querySelector('.edit_post__modal');
-  botaoAbrirModalEdit.addEventListener('click', () => {
-    editModal.showModal();
-    modalEdit();
-  });
-}
-
