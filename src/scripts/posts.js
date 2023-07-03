@@ -1,5 +1,32 @@
 import { baseUrl } from "./index.js";
 
+export async function createPost(requestBody) {
+  try {
+    const token = localStorage.getItem('@petInfo:token');
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify(requestBody),
+    };
+
+    const response = await fetch(`${baseUrl}/posts/create`, options);
+    const data = await response.json();
+
+    if (response.ok) {
+      return data;
+    } else {
+      throw new Error(data.message || 'Erro na criação do post');
+    }
+  } 
+    catch (error) {
+    console.error(error);
+    throw new Error('Erro na requisição');
+  }
+}
+
 function handleModal() {
   const postForm = document.querySelector('.form_modal_post');
   const postButton = document.querySelector('#publicar_button');
@@ -18,42 +45,13 @@ function handleModal() {
       try {
         await createPost(post);
         const posts = await getPosts();
-      } catch (error) {
+      } 
+      catch (error) {
         alert(error.message);
       }
-      const modal = document.querySelector('.modal');
+      const modal = document.querySelector('.crar_post__modal');
       modal.close();
     });
-  }
-}
-
-handleModal();
-
-
-async function createPost(requestBody) {
-  try {
-    const token = localStorage.getItem('@petInfo:token');
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-      body: JSON.stringify(requestBody),
-    };
-
-    const response = await fetch(`${baseUrl}/posts/create`, options);
-    const data = await response.json();
-
-    if (response.ok) {
-      alert('Post criado com sucesso');
-      return data;
-    } else {
-      throw new Error(data.message || 'Erro na criação do post');
-    }
-  } catch (error) {
-    console.error(error);
-    throw new Error('Erro na requisição');
   }
 }
 
@@ -76,13 +74,14 @@ async function getPosts() {
     } else {
       throw new Error(data.message);
     }
-  } catch (error) {
+   } 
+  catch (error) {
     console.error(error);
     throw new Error('Erro na requisição');
   }
 }
 
-async function renderCards() {
+export async function renderCards() {
   const postList = document.querySelector('.post_list');
 
   try {
@@ -341,4 +340,6 @@ async function viewPost(postId) {
   }
 }
 
+
+handleModal();
 renderCards();

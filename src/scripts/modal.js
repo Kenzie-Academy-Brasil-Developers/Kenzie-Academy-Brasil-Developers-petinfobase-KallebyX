@@ -1,3 +1,5 @@
+import { createPost, renderCards } from './posts.js';
+
 const criarPublicacaoButton = document.querySelector('#criar-publicacao');
 const closeModal = document.querySelector('.closeModal');
 const cancelarButton = document.querySelector('#cancelar');
@@ -31,9 +33,9 @@ function handleModal() {
       await createPost(post);
       fecharModal();
       renderCards();
-    } catch (error) {
-      alert(error.message);
-    }
+     } catch (error) {
+       alert(error.message);
+     }
   });
 }
 
