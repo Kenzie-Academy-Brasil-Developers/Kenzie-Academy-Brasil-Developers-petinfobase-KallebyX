@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dashboard</title>
+    <link rel="shortcut icon" class="favicon" href="/src/img/pngwing.com.png" type="image/x-icon">
+    <title>Petinfo Feed</title>
     <link rel="stylesheet" href="/src/styles/modal.css">
     <link rel="stylesheet" href="/src/styles/dashboard.css">
 </head>
 <body>
-    <header id="menu">
-        <h1 class="h1-pet">PetInfo</h1>
-        <div id="user-menu">
-          <button id="criar-publicacao">Criar publicação</button>
-          <div class="imgButton">
-            <img id="user-image" src="" alt="">
-          </div>
-          <div class="button_box">
-            
-            <button id="logout-button" style="display: none;">Sair</button>
-          </div>
+  <header id="menu">
+    <h1 class="h1-pet">PetInfo</h1>
+    <div id="user-menu">
+      <button id="criar-publicacao">Criar publicação</button>
+      <div class="menu">
+        <img id="user-image" src="" alt="">
+        <div class="retangulo">
+          <p id="user-name"></p>          
+          <img class="sair_img" style="display: none;" src="/src/img/saida.png" alt="">
+          <button id="logout-button" style="display: none;">Sair da conta</button>          
         </div>
-    </header>
+      </div> 
+    </div>
+  </header>
+  
     <h3 class="feed">Feed</h3>
     <section class="feedSection">
         <div id="result-style">
@@ -71,18 +74,22 @@
       <dialog id="edit_post__modal">
         <div class="edit_post__modal-conatiner">
             <div class="editContainer">
-                <h2>Edição</h2>
+                <h2 class="title">Edição</h2>
                 <button id="x" class="closeModal">X</button>
             </div>
-            <form>
+            <form class="modalBox">
+              <div class="tituloEText">
                 <label for="title" class="postTitle">Título do post</label>
-                <input type="text" class="content_input">
-                <label for="post_content">Conteúdo do post</label>
-                <input type="text" class="content_input">
-                <div class="botoes">
-                  <button id="cancelar" type="button">Cancelar</button>
-                  <button id="publicar_button" type="button">Salva Alterações</button>
-                </div>
+                <input type="text" class="title_input" placeholder="Digite aqui o novo titulo">
+              </div>
+              <div class="conteudoBox">
+                <label for="post_content" class="label">Conteúdo do post</label>
+                <input type="text" class="content_input" placeholder="Digite aqui o novo texto">
+              </div>  
+              <div class="botoes">
+                <button id="cancelar" type="button">Cancelar</button>
+                <button id="publicar_button" type="button">Salva Alterações</button>
+              </div>
             </form>
         </div>
     </dialog>
@@ -90,14 +97,14 @@
     <dialog id="delete_post__modal">
       <div class="delte_post__modal-conatiner">
           <div class="deleteContainer">
-              <h2>Confirmação de exclusão</h2>
+              <h2 id="h2Exclusao">Confirmação de exclusão</h2>
               <button id="x" class="closeModal">X</button>
           </div>
           <div class="h1_p_deleteModal">
-            <h1>Tem certeza que deseja excluir este post?</h1>
-            <p>Essa ação não poderá ser desfeita, então pedimos que tenha cautela antes de concluir</p>
+            <h1 id="h1Certeza">Tem certeza que deseja excluir este post?</h1>
+            <p id="pDelete">Essa ação não poderá ser desfeita, então pedimos que tenha cautela antes de concluir</p>
           </div>
-          <div class="botoes">
+          <div class="botoesCancelar">
             <button id="cancelar" type="button">Cancelar</button>
             <button id="excluir_button" type="button">Sim, excluir este post</button>
           </div>
