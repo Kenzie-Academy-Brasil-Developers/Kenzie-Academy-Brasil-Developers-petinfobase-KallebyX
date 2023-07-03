@@ -1,4 +1,4 @@
-import { baseUrl } from "/src/scripts/index.js";
+import { baseUrl, token } from "./index.js"
 
 async function loginRequest(loginBody) {
   try {
@@ -12,7 +12,7 @@ async function loginRequest(loginBody) {
 
     const resJson = await res.json();
 
-    if (res.ok) {
+    if (res.ok && resJson.token) {
         localStorage.setItem('@petInfo:token', resJson.token);
         return resJson.token;
     } else {
@@ -31,7 +31,7 @@ async function userAuthenticator(user) {
       const profileInfos = await getProfileInfos();
       console.log(profileInfos);
       localStorage.setItem('@petInfo:userName', profileInfos.name);
-      window.location.href = '/src/pages/dashboard.html';
+      window.location.href = './src/pages/dashboard.html';
     } else {
       throw new Error('Senha ou email incorretos');
     }
@@ -64,7 +64,7 @@ async function getProfileInfos() {
 
 const botaoCadastro = document.querySelector('#cadastro__button');
 botaoCadastro.addEventListener('click', () => {
-  window.location.href = './src/pages/cadastro.html';
+  window.location.href = '/src/pages/cadastro.html';
 });
 
 function handleLogin() {
