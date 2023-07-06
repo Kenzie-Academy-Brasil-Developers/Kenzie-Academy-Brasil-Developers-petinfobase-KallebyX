@@ -17,7 +17,7 @@
       <div class="menu">
         <img id="user-image" src="" alt="">
         <div class="retangulo">
-          <p id="user-name"></p>          
+          <p class="username1"></p>         
           <img class="sair_img" style="display: none;" src="../img/saida.png" alt="">
           <button id="logout-button" style="display: none;">Sair da conta</button>          
         </div>
@@ -111,22 +111,26 @@
       </div>
   </dialog>
 
-  <dialog id="view_post__modal">
-    <div class="view_post__modal-conatiner">
-        <div class="viewContainer">
-            <img class="perfil_img" src="" alt="">
-            <p class="data"></p>
-            <button id="x" class="closeModal">X</button>
-        </div>
-        <div class="h1_p_view_modal">
-          <h1 class="titulo"></h1>
-          <p class="content"></p>
-        </div>
+  <dialog id="view_post__modal" class="view_post__modal">
+    <div id="view_post__modal-containe"  class="view_post__modal-container">
+      <div id="nav" class="viewContainer">
+        <img id="img" class="perfil_img" src="" alt="">
+        <p id="userName" class="username"></p>
+        <p id="barra" class="bar">|</p>
+        <p id="dataID" class="data"></p>
+        <button id="x" class="closeModal">X</button>
+      </div>
+      <div id="principall" class="h1_p_view_modal">
+        <h1 id="tituloVIew" class="titulo"></h1>
+        <p id="contentView" class="content"></p>
+      </div>
     </div>
-</dialog>
+  </dialog>
+
       <script type="module" src="../scripts/dashboard.js"></script>
       <script type="module" src="../scripts/index.js"></script>
       <script type="module" src="../scripts/modal.js"></script>
       <script type="module" src="../scripts/posts.js"></script>
+
 </body>
 </html>
