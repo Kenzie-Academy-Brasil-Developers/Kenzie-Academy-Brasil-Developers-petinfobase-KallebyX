@@ -1,13 +1,16 @@
-import { baseUrl } from "./index.js";
+import { baseUrl, userName, token } from "./index.js";
+
 
 document.addEventListener('DOMContentLoaded', () => {
+  const storedUserName = localStorage.getItem("@petInfo:userName"); // Retrieve username from localStorage
+
   getProfileData()
     .then((profileData) => {
-      const { imageUrl, userName } = profileData;
+      const { imageUrl } = profileData;
       const userImage = document.getElementById("user-image");
-      const userNameElement = document.getElementById("user-name");
+      const userNameElement = document.querySelector(".username1");
+      userNameElement.textContent = storedUserName; // Use the retrieved username from localStorage
       userImage.src = imageUrl;
-      userNameElement.textContent = userName;
       addLogoutButtonListeners(); 
     })
     .catch((error) => {

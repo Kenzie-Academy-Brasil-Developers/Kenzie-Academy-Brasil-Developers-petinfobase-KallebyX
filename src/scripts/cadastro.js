@@ -1,5 +1,17 @@
 import { baseUrl } from "./index.js";
 
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  toast.classList.remove('hidden');
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+    toast.classList.add('hidden');
+  }, 9000);
+}
+
 async function createUser(requestBody) {
   try {
     const res = await fetch(`${baseUrl}/users/create`, {
@@ -14,14 +26,14 @@ async function createUser(requestBody) {
 
     if (res.ok) {
       localStorage.setItem('@petInfo:token', resJson.token);
-      alert('Usuário criado com sucesso');
+      showToast('Usuário criado com sucesso', 'Acesse sua conta', '../pages/login/login.html');
       window.location.href = "../../index.html";
       return resJson;
     } else {
       throw new Error(resJson.message);
     }
   } catch (err) {
-    alert(err);
+    showToast(err.message);
   }
 }
 
@@ -58,6 +70,8 @@ function retornar() {
     });
   });
 }
+
+
 
 retornar();
 

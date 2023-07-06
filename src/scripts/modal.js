@@ -30,7 +30,6 @@ function handleModal() {
     });
 
     try {
-      await createPost(post);
       fecharModal();
       renderCards();
      } catch (error) {
@@ -40,4 +39,4 @@ function handleModal() {
 }
 
 handleModal();
-
+renderCards();

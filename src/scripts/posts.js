@@ -128,11 +128,13 @@ export async function renderCards() {
       editarButton.setAttribute('id', 'edit_button');
       editarButton.addEventListener('click', () => {
         const editModal = document.getElementById('edit_post__modal');
-        editModal.showModal();
-      });
-      editarButton.addEventListener('click', () => {
-        const editModal = document.getElementById('edit_post__modal');
-        editModal.setAttribute('data-post-id', post.id); 
+        const titleInput = editModal.querySelector('.title_input');
+        const contentInput = editModal.querySelector('.content_input');
+
+        titleInput.value = post.title;
+        contentInput.value = post.content;
+
+        editModal.setAttribute('data-post-id', post.id);
         editModal.showModal();
       });
 
@@ -168,14 +170,16 @@ export async function renderCards() {
       const buttonDiv = document.createElement('div');
       buttonDiv.classList.add('access_button_div');
 
-      const button = document.createElement('button');
-      button.textContent = 'Acessar publicação';
-      button.classList.add('access_button');
-      button.addEventListener('click', () => {
-        viewPost(post.id); 
+      const viewButton = document.createElement('button');
+      viewButton.textContent = 'Acessar publicação';
+      viewButton.classList.add('access_button');
+      buttonDiv.appendChild(viewButton);
+      buttonDiv.appendChild(viewButton);
+
+      viewButton.addEventListener('click', () => {
+        openViewModal(post);
       });
-      buttonDiv.appendChild(button);
-      buttonDiv.appendChild(button);
+
 
       card.appendChild(buttonUserInfoDiv);
       card.appendChild(titleContentDiv);
@@ -187,6 +191,37 @@ export async function renderCards() {
     alert('Erro ao renderizar os cards');
   }
   
+}
+
+function createDeleteToast() {
+  const toast = document.createElement('div');
+  toast.classList.add('toast');
+
+  const iconContainer = document.createElement('div');
+  iconContainer.classList.add('toast_icon-container');
+
+  const image = document.createElement('img');
+  image.src = '../img/check.png';
+  image.alt = 'Ícone de confirmação de exclusão';
+  iconContainer.appendChild(image);
+  image.classList.add('toast_image');
+
+  const title = document.createElement('h1');
+  title.textContent = 'Post deletado com sucesso!';
+  iconContainer.appendChild(title);
+  title.classList.add('toast_title');
+
+  const message = document.createElement('p');
+  message.textContent = 'O post selecionado para exclusão foi deletado. A partir de agora não aparecerá no seu feed.';
+  toast.appendChild(iconContainer);
+  toast.appendChild(message);
+  message.classList.add('toast_message');
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 1000);
 }
 
 async function deletePost(postId) {
@@ -219,24 +254,25 @@ async function deletePost(postId) {
         const data = await response.json();
 
         if (response.ok) {
-          alert('Post deletado com sucesso');
+          createDeleteToast();
           resolve(data);
         } else {
           throw new Error(data.message || 'Erro na exclusão do post');
         }
       } catch (error) {
         console.error(error);
-        reject(new Error('Erro na requisição'));
+        reject(error);
       }
     });
   });
 }
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const deleteModal = document.getElementById('delete_post__modal');
   const closeButton = deleteModal.querySelector('.closeModal');
-  const cancelButton = document.getElementById('cancelar');
+  const cancelButton = deleteModal.querySelector('#cancelar');
 
   closeButton.addEventListener('click', () => {
     deleteModal.close();
@@ -246,6 +282,8 @@ document.addEventListener('DOMContentLoaded', () => {
     deleteModal.close();
   });
 });
+
+
 
 async function updatePost(postId, updatedData) {
   try {
@@ -309,37 +347,30 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+function openViewModal(post) {
   const viewModal = document.getElementById('view_post__modal');
   const closeButton = viewModal.querySelector('.closeModal');
+  const perfilImg = viewModal.querySelector('.perfil_img');
+  const userName = viewModal.querySelector('.username');
+  const data = viewModal.querySelector('.data');
+  const titulo = viewModal.querySelector('.titulo');
+  const content = viewModal.querySelector('.content');
+
+
+  perfilImg.src = post.user.avatar;
+  userName.textContent = post.user.username;
+  data.textContent = new Date(post.createdAt).toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
+  titulo.textContent = post.title;
+  content.textContent = post.content;
 
   closeButton.addEventListener('click', () => {
     viewModal.close();
   });
-});
 
-async function viewPost(postId) {
-  try {
-    const token = localStorage.getItem('@petInfo:token');
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
-    const response = await fetch(`${baseUrl}/posts/${postId}`, options);
-    console.log('Response:', response);
-
-    const data = await response.json();
-    console.log('Data:', data);
-  } catch (error) {
-    console.error(error);
-    alert('Erro ao visualizar o post');
+  if (!viewModal.hasAttribute('open')) {
+    viewModal.showModal();
   }
 }
 
 
 handleModal();
-renderCards();
