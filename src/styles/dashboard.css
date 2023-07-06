@@ -378,3 +378,60 @@ img {
     text-decoration: underline;
     position: relative;
 }
+
+.toast {
+    background: var(--grey-9, #fcfeff);
+    border-radius: 4px;
+    padding: 21px 32px 21px 32px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 17px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    left: 1270px;
+    top: 1253px;
+    box-shadow: 0px 4px 30px -12px rgba(0, 0, 0, 0.1);
+}
+  
+#toast.show {
+    opacity: 1;
+}
+  
+#toast.hidden {
+    display: none;
+}
+
+.toast_icon-container {
+    display: inline-flex; 
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.toast_title {
+    color: var(--sucess-1, #087f5b);
+    text-align: left;
+    font: var(--font-4-500, 500 16px/150% "IBM Plex Sans", sans-serif);
+    position: relative;
+    width: 252px;
+}
+
+.toast_image {
+    background: var(--sucess-1, #087f5b);
+    border-radius: 112.5px;
+    width: 24px;
+    height: 24px;
+    position: relative;
+}
+
+.toast_message {
+    color: var(--grey-2, #343a40);
+    text-align: left;
+    font: 400 14px/150% "IBM Plex Sans", sans-serif;
+    position: relative;
+    width: 377.73px;
+}
+  

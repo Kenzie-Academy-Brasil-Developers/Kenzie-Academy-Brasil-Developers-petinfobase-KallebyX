@@ -5,7 +5,7 @@
     padding: 32px 24px 32px 24px;
     gap: 46px;
     width: 780px;
-    height: 490px;
+    height: 535px;
     border: none;
 }
 
@@ -82,6 +82,19 @@
     width: 744px;
     height: 233px;
     position: static;
+}
+
+#edit_post__modal {
+    background: var(--grey-9, #fcfeff);
+    border-radius: 8px;
+    border: 0.1px solid;
+}
+
+#delete_post__modal {
+    background: var(--grey-9, #fcfeff);
+    border-radius: 8px;
+    border: 0.1px solid;
+    border: none;
 }
 
 #postTitle {
@@ -241,6 +254,7 @@
     justify-content: flex-start;
     flex-shrink: 0;
     position: relative;
+    
 }
 
 .title_input {
@@ -277,9 +291,11 @@
 .content_input {
     background: #f8f9fa;
     border-radius: 4px;
-    border: 1px solid #d9d9d9;
+    border-style: solid;
+    border-color: #d9d9d9;
+    border-width: 1px;
     padding: 10px 17px;
-    display: grid;
+    display: flex;
     flex-direction: row;
     gap: 10px;
     align-items: flex-start;
@@ -287,6 +303,15 @@
     width: 743px;
     height: 150px;
     position: relative;
+}
+  
+.content_input::placeholder {
+    color: var(--grey-1, #212529);
+    text-align: left;
+    font: var(--font-4-400, 400 16px/150% "IBM Plex Sans", sans-serif);
+    position: relative;
+    width: 715px;
+    height: 150px;
 }
 
 .label {
@@ -303,7 +328,7 @@
 
 .botoes {
     margin-left: 475px;
-    margin-top: 45px;
+    margin-top: 120px;
     display: flex;
     gap: 25px;
     align-items: center;
@@ -404,4 +429,91 @@
     text-align: left;
     font: var(--font-4-400, 400 16px/150% "IBM Plex Sans", sans-serif);
     position: relative;
+}
+
+
+
+.username {
+    color: #212529;
+    text-align: left;
+    font: var(--font-5-500, 500 14px/150% "IBM Plex Sans", sans-serif);
+    position: relative;
+}
+
+.bar {
+    color: #e9ecef;
+    text-align: left;
+    font: 500 20px/150% "IBM Plex Sans", sans-serif;
+    position: relative;
+}
+
+#view_post__modal {
+    background: var(--grey-9, #fcfeff);
+    border-radius: 8px;
+    border: 0.1px solid;
+    padding: 32px 24px 32px 24px;
+    gap: 46px;
+    width: 780px;
+    height: 490px;
+    border: none;
+}
+  
+#view_post__modal-containe {
+    background: var(--grey-9, #fcfeff);
+    border-radius: 8px;
+    padding: 32px 24px;
+    gap: 46px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 752px;
+    box-sizing: border-box;
+}
+  
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+  
+#img {
+    background: linear-gradient(to left, #d9d9d9, #d9d9d9);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
+  
+#dataID {
+    color: #868e96;
+    text-align: left;
+    font: var(--font-5-500, 500 14px/150% "IBM Plex Sans", sans-serif);
+}
+  
+#x {
+    color: #868e96;
+    text-align: left;
+    font: 700 14px/150% "Nunito", sans-serif;
+    margin-left: auto;
+    cursor: pointer;
+}
+  
+#principall {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+  
+#tituloVIew {
+    color: #212529;
+    text-align: left;
+    font: var(--font-2-600, 600 24px/150% "IBM Plex Sans", sans-serif);
+}
+  
+#contentView {
+    color: #495057;
+    text-align: left;
+    font: var(--font-4-400, 400 16px/150% "IBM Plex Sans", sans-serif);
 }
